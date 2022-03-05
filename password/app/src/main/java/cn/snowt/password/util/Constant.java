@@ -56,7 +56,7 @@ public class Constant {
             "反馈QQ:3192233122(注明添加缘由)\n" +
             "版本: 1.0.0\n" +
             "更新日期: 2022-03-05\n" +
-            "开源代码(长按复制): https://github.com/HibaraAi/PasswordManager";
+            "开源代码(长按复制): https://github.com/HibaraAi/password";
 
     /**
      * 帮助信息

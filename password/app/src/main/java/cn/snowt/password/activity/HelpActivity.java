@@ -53,7 +53,7 @@ public class HelpActivity extends AppCompatActivity {
                 assert supportActionBar != null;
                 supportActionBar.setTitle("关于");
                 helpContent.setOnItemLongClickListener((parent, view, position, id) -> {
-                    if (BaseUtils.copyInClipboard(this,"https://github.com/HibaraAi/Diary")) {
+                    if (BaseUtils.copyInClipboard(this,"https://github.com/HibaraAi/password")) {
                         BaseUtils.shortTipInCoast(HelpActivity.this,"开源代码的网址已复制");
                     }
                     return true;
