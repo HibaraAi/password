@@ -1,0 +1,34 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="设置">
+
+        <Preference
+            app:key="reSetPin"
+            app:title="修改启动密码" />
+
+        <Preference
+            app:key="backup"
+            app:title="生成备份文件" />
+
+        <Preference
+            app:key="recovery"
+            app:title="从备份文件读取数据" />
+
+        <Preference
+            app:key="outToTxt"
+            app:title="明文导出"/>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="帮助&amp;关于">
+        <Preference
+            app:key="help"
+            app:title="帮助"/>
+        <Preference
+            app:key="about"
+            app:title="关于"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
