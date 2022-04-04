@@ -19,6 +19,8 @@
 
 ## 二. 软件截图
 
+视频演示：https://www.bilibili.com/video/BV1pL4y1u7a7
+
 ![截图](img/01.png)
 
 ## 三. 待解决
