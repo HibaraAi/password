@@ -71,14 +71,6 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener((new SearchView.OnQueryTextListener(){
             @Override
             public boolean onQueryTextSubmit(String query) {
-//                List<Key> queryResult = new ArrayList<>();
-//                keyList.forEach(key->{
-//                    if(key.getName().contains(query)){
-//                        queryResult.add(key);
-//                    }
-//                });
-//                updateAndFlushShowData(queryResult);
-//                return true;
                 return false;
             }
 
@@ -89,24 +81,42 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     List<Key> searchList = new ArrayList<>();
                     List<Integer> ids = new ArrayList<>();
-                    nameSearch.forEach(s -> {
+//                    nameSearch.forEach(s -> {
+//                        if(s.contains(newText)){
+//                            int index = nameSearch.indexOf(s);
+//                            Key key = keyList.get(index);
+//                            searchList.add(key);
+//                            ids.add(key.getId());
+//                        }
+//                    });
+                    int i=0;
+                    for(;i<nameSearch.size();i++){
+                        String s = nameSearch.get((Integer) i);
                         if(s.contains(newText)){
-                            int index = nameSearch.indexOf(s);
-                            Key key = keyList.get(index);
+                            Key key = keyList.get((Integer) i);
                             searchList.add(key);
                             ids.add(key.getId());
                         }
-                    });
-                    otherNameSearch.forEach(s->{
+                    }
+//                    otherNameSearch.forEach(s->{
+//                        if(s.contains(newText)){
+//                            int index = otherNameSearch.indexOf(s);
+//                            Key key = keyList.get(index);
+//                            if(!ids.contains(key.getId())){
+//                                searchList.add(key);
+//                                ids.add(key.getId());
+//                            }
+//                        }
+//                    });
+                    int j=0;
+                    for(;j<otherNameSearch.size();j++){
+                        String s = otherNameSearch.get((Integer) j);
                         if(s.contains(newText)){
-                            int index = otherNameSearch.indexOf(s);
-                            Key key = keyList.get(index);
-                            if(!ids.contains(key.getId())){
-                                searchList.add(key);
-                                ids.add(key.getId());
-                            }
+                            Key key = keyList.get((Integer) j);
+                            searchList.add(key);
+                            ids.add(key.getId());
                         }
-                    });
+                    }
                     updateAndFlushShowData(searchList);
                 }
                 return true;
@@ -217,19 +227,17 @@ public class MainActivity extends AppCompatActivity {
     private void getSearchHelp(){
         if(null==nameSearch){
             nameSearch = new ArrayList<>();
+        }else{
+            nameSearch.clear();
         }
         if(null==otherNameSearch){
             otherNameSearch = new ArrayList<>();
+        }else{
+            otherNameSearch.clear();
         }
         keyList.forEach(key -> {
             nameSearch.add(ChineseCharUtils.getAllFirstLetter(key.getName()).toLowerCase());
             otherNameSearch.add(ChineseCharUtils.getAllFirstLetter(key.getOtherName()).toLowerCase());
-//            String otherName = key.getOtherName();
-//            if(null==otherName || "".equals(otherName)){
-//                otherName = "#";
-//            }
-//            otherNameSearch.add(ChineseCharUtils.getAllFirstLetter(otherName).toLowerCase());
-
         });
     }
 }
