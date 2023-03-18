@@ -54,8 +54,8 @@ public class Constant {
      */
     public static final String STRING_ABOUT = "作者: HibaraAi\n" +
             "反馈QQ:3192233122(注明添加缘由)\n" +
-            "版本: 1.0.0\n" +
-            "更新日期: 2022-03-05\n" +
+            "版本: 1.0.4\n" +
+            "更新日期: 2023-03-18\n" +
             "开源代码(长按复制): https://github.com/HibaraAi/password";
 
     /**
@@ -77,7 +77,10 @@ public class Constant {
             "2.由于数据存储全都在本地的sqlite数据库(也有部分存在xml文件里)，正常的Android设备下，其他应用是访问不到本应用存储的所有数据，但由于root权限可以随意访问任何应用的数据，建议不要破解root权限。\n" +
             "3.如何获取更新？不支持检测更新，你必须到开源网址检查是否发布了新的版本(新release)\n" +
             "4.建议和bug反馈：3192233122@qq.com，邮件标题注明【连连看bug反馈】\n" +
-            "5.开源网址打不开请多刷新几次，或者访问镜像https://gitee.com/HibaraAi/password";
+            "5.开源网址打不开请多刷新几次，或者访问镜像https://gitee.com/HibaraAi/password\n" +
+            "\n七、本次更新内容\n" +
+            "1.修复搜索bug\n" +
+            "2.压缩软件大小\n";
     public static final String SHARE_PREFERENCES_PRIVATE_KEY = "privateKey";
     public static final String SHARE_PREFERENCES_PUBLIC_KEY = "publicKey";
 }
