@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/activity_detail.xml" value="0.1" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/activity_edit.xml" value="0.30416666666666664" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/activity_help.xml" value="0.30416666666666664" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/activity_main.xml" value="0.30416666666666664" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/activity_set_password.xml" value="0.30416666666666664" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/default_toolbar.xml" value="0.30416666666666664" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/key_item.xml" value="0.30416666666666664" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/key_item_pdf.xml" value="0.24957264957264957" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/layout/settings_activity.xml" value="0.30416666666666664" />
+        <entry key="..\:/PC/Desktop/pass/password/app/src/main/res/xml/root_preferences.xml" value="0.30416666666666664" />
         <entry key="..\:/PC/Favorites/SourceCode/password/password/app/src/main/res/layout/activity_detail.xml" value="0.1" />
         <entry key="..\:/PC/Favorites/SourceCode/password/password/app/src/main/res/layout/activity_edit.xml" value="0.1" />
         <entry key="..\:/PC/Favorites/SourceCode/password/password/app/src/main/res/layout/activity_help.xml" value="0.19791666666666666" />
