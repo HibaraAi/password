@@ -1,5 +1,6 @@
 package cn.snowt.password.service.impl;
 
+import android.os.Environment;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
@@ -25,6 +26,7 @@ import cn.snowt.password.util.BaseUtils;
 import cn.snowt.password.util.Constant;
 import cn.snowt.password.util.MD5Utils;
 import cn.snowt.password.util.MyConfiguration;
+import cn.snowt.password.util.PDFUtils;
 import cn.snowt.password.util.RSAUtils;
 import cn.snowt.password.util.SimpleResult;
 
@@ -114,6 +116,51 @@ public class KeyServiceImpl implements KeyService {
             }
             //创建成功后新建一个index.txt，并写入内容
             String fileName= "lianliankanTEMP_"+ BaseUtils.dateToString(new Date())+".dll";
+            File backupFile=new File(backupPath+"/"+fileName);
+            backupFilePath = backupFile.getPath();
+            backupFile.createNewFile();
+            //第二个参数的意思
+            //r    以只读的方式打开文本，也就意味着不能用write来操作文件
+            //rw   读操作和写操作都是允许的
+            //rws  每当进行写操作，同步的刷新到磁盘，刷新内容和元数据
+            //rwd  每当进行写操作，同步的刷新到磁盘，刷新内容
+            RandomAccessFile FileWrite= new RandomAccessFile(backupFile, "rwd");
+            //从什么位置开始写
+            FileWrite.seek(backupFile.length());
+            //写入数据
+            FileWrite.write(mapJson.getBytes());
+            FileWrite.close();
+        }catch (IOException e){
+            Log.e(TAG,"备份所有密码失败");
+            e.printStackTrace();
+            return SimpleResult.error().msg("备份失败,请重试");
+        }
+        return SimpleResult.ok().data(backupFilePath);
+    }
+
+    @Override
+    public SimpleResult backupKeyToROM(String pin) {
+        List<Key> originalKeyList = LitePal.findAll(Key.class);
+        Map<String,Object> map = new HashMap<>();
+        map.put("data",originalKeyList);
+        map.put("pin", MD5Utils.encrypt(Constant.PASSWORD_PREFIX+pin));
+        map.put("version",Constant.INTERNAL_VERSION);
+        map.put("privateKey", MyConfiguration.getInstance().getPrivateKey());
+        map.put("publicKey",MyConfiguration.getInstance().getPublicKey());
+        String mapJson = JSON.toJSONString(map);
+        //String mapJson = BaseUtils.toJson(map);
+        String backupFilePath = null;
+        //获取外部存储路径
+        String parentPath = Environment.getExternalStoragePublicDirectory(Constant.EXTERNAL_STORAGE_LOCATION).getAbsolutePath()+"/Backup/";
+        //通过文件字节输出流存储
+        try {
+            //创建文件夹index888
+            File backupPath=new File(parentPath);
+            if (!backupPath.exists()) {
+                backupPath.mkdirs();
+            }
+            //创建成功后新建一个index.txt，并写入内容
+            String fileName= "PasswordBackup"+BaseUtils.dateToString(new Date()).substring(0,10)+".dll";
             File backupFile=new File(backupPath+"/"+fileName);
             backupFilePath = backupFile.getPath();
             backupFile.createNewFile();
@@ -413,6 +460,65 @@ public class KeyServiceImpl implements KeyService {
             return SimpleResult.error().msg("导出大数据失败,请重试");
         }
         return SimpleResult.ok().data(backupFilePath);
+    }
+
+    @Override
+    public SimpleResult outputKeyToTxtToROM() {
+        List<Key> ids = LitePal.select("id").find(Key.class);
+        StringBuilder builder = new StringBuilder();
+        AtomicInteger i= new AtomicInteger(1);
+        ids.forEach(id->{
+            Key key = getDecodeKeyById(id.getId());
+            builder.append("(").append(i.get()).append("/").append(ids.size()).append(")");
+            builder.append("条目名称：").append(key.getName()).append("\n");
+            builder.append("账号1：").append(key.getAccountOne()).append("   ").append("对应密码：").append(key.getPasswordOne()).append("\n");
+            builder.append("账号2：").append(key.getAccountTwo()).append("   ").append("对应密码：").append(key.getPasswordTwo()).append("\n");
+            builder.append("条目备注：").append(key.getRemarks()).append("\n\n");
+            i.getAndIncrement();
+        });
+        String outputTxtStr = builder.toString();
+        String backupFilePath = null;
+        //获取外部存储路径
+        String parentPath = Environment.getExternalStoragePublicDirectory(Constant.EXTERNAL_STORAGE_LOCATION).getAbsolutePath()+"/TXT/";
+        //通过文件字节输出流存储
+        try {
+            //创建文件夹index888
+            File backupPath=new File(parentPath);
+            if (!backupPath.exists()) {
+                backupPath.mkdirs();
+            }
+            //创建成功后新建一个index.txt，并写入内容
+            String fileName= "PasswordTXT"+BaseUtils.dateToString(new Date()).substring(0,10)+".txt";
+            File backupFile=new File(backupPath+"/"+fileName);
+            backupFilePath = backupFile.getPath();
+            backupFile.createNewFile();
+            //第二个参数的意思
+            //r    以只读的方式打开文本，也就意味着不能用write来操作文件
+            //rw   读操作和写操作都是允许的
+            //rws  每当进行写操作，同步的刷新到磁盘，刷新内容和元数据
+            //rwd  每当进行写操作，同步的刷新到磁盘，刷新内容
+            RandomAccessFile FileWrite= new RandomAccessFile(backupFile, "rwd");
+            //从什么位置开始写
+            FileWrite.seek(backupFile.length());
+            //写入数据
+            FileWrite.write(outputTxtStr.getBytes());
+            FileWrite.close();
+        }catch (IOException e){
+            Log.e(TAG,"导出数据失败");
+            e.printStackTrace();
+            return SimpleResult.error().msg("导出大数据失败,请重试");
+        }
+        return SimpleResult.ok().data(backupFilePath);
+    }
+
+    @Override
+    public List<Key> getKeyVoForPDF() {
+        List<Key> keyVo = new ArrayList<>();
+        List<Key> keyList = getSimpleKeyList();
+        keyList.forEach(key -> {
+            keyVo.add(getDecodeKeyById(key.getId()));
+        });
+        return keyVo;
     }
 
     /**

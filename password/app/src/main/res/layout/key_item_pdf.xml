@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/detail_tip_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="名    称:"
+        android:textSize="19dp"
+        android:textColor="#D70C46"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:id="@+id/detail_value_name"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_tip_0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/detail_tip_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账号一:"
+        android:textSize="18dp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/detail_value_name"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/detail_value_account1"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="1156922267dsaddddddddddddddddddddddddddddddddddddddsaaaaaaa"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_tip_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/detail_tip_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码一:"
+        android:textSize="18dp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/detail_value_account1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/detail_value_password1"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="8888888888888888888"
+        android:textSize="20dp"
+        android:paddingLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_tip_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/detail_tip_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账号二:"
+        android:textSize="18dp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/detail_value_password1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/detail_value_account2"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="8888888888888888888"
+        android:textSize="20dp"
+        android:paddingLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_tip_3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/detail_tip_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码二:"
+        android:textSize="18dp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/detail_value_account2"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/detail_value_password2"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="8888888888888888888"
+        android:textSize="20dp"
+        android:paddingLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_tip_4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/detail_tip_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="别    名:"
+        android:textSize="18dp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/detail_value_password2"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/detail_value_otherName"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="88888888888888顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶8888888888888888888顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶8888888888888888888顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶88888"
+        android:textSize="20dp"
+        android:paddingLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_tip_5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/detail_tip_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="备    注:"
+        android:textSize="18dp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/detail_value_otherName"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/detail_value_remark"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="88888888888888顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶88888"
+        android:textSize="20dp"
+        android:paddingLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_tip_6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <TextView
+        android:id="@+id/detail_tip_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="创建时间:"
+        android:textSize="18dp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/detail_value_remark"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/detail_value_date"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="88888888888888顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶88888"
+        android:textSize="20dp"
+        android:paddingLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_tip_7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

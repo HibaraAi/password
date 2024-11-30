@@ -3,6 +3,7 @@ package cn.snowt.password.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -137,11 +138,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         boolean firstUse = sharedPreferences.getBoolean("firstUse", true);
         if(firstUse){
             //第一次使用本程序
-            //创建数据库
-            LitePal.getDatabase();
-            BaseUtils.longTipInCoast(LoginActivity.this,"第一次使用软件，正在设置加密密钥，请稍等");
-            //跳转设置登录密码界面
-            BaseUtils.gotoActivity(this, SetPasswordActivity.class);
+            //弹出免责声明
+            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+            builder.setTitle("免责声明")
+                    .setMessage("本软件不会盗取你任何数据，有开源代码可查，开源网址https://github.com/HibaraAi/password或https://gitee.com/HibaraAi/password。因此，如果你在使用本软件的过程中，产生无论何种形式的损失，都与本作者无关。")
+                    .setPositiveButton("了解并接受", (dialog, which) -> {
+                        //创建数据库
+                        LitePal.getDatabase();
+                        BaseUtils.longTipInCoast(LoginActivity.this,"第一次使用软件，正在设置加密密钥，请稍等");
+                        //跳转设置登录密码界面
+                        BaseUtils.gotoActivity(this, SetPasswordActivity.class);
+                    })
+                    .setCancelable(false)
+                    .setNegativeButton("不接受并退出",((dialog, which) -> finish()))
+                    .show();
         }
     }
 }

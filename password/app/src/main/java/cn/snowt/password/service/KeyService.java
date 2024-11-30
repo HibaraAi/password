@@ -48,6 +48,13 @@ public interface KeyService {
     SimpleResult backupKey(String pin);
 
     /**
+     * 备份已有Key到外部存储
+     * @param pin 设置的密码，仅供从备份文件恢复时使用
+     * @return
+     */
+    SimpleResult backupKeyToROM(String pin);
+
+    /**
      * 从备份文件恢复Key
      * @param pin 验证备份时输入的密码
      * @param map
@@ -76,4 +83,16 @@ public interface KeyService {
      * @return
      */
     SimpleResult outputKeyToTxt();
+
+    /**
+     * 导出所有密码到txt文件，并存储到外存
+     * @return
+     */
+    SimpleResult outputKeyToTxtToROM();
+
+    /**
+     * 获取输出PDF所需的KeyVo
+     * @return List<Key>
+     */
+    List<Key> getKeyVoForPDF();
 }

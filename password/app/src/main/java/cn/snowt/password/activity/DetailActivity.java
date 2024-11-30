@@ -38,6 +38,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnLongClic
     private TextView viewRemark;
     private TextView viewOtherName;
     private TextView viewName;
+    private TextView date;
     private Button resetClipboard = null;
 
     private KeyService keyService = new KeyServiceImpl();
@@ -71,6 +72,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnLongClic
         viewRemark = findViewById(R.id.detail_value_remark);
         viewOtherName = findViewById(R.id.detail_value_otherName);
         viewName = findViewById(R.id.detail_value_name);
+        date = findViewById(R.id.detail_value_date);
 
         viewName.setOnLongClickListener(this);
         viewAccount1.setOnLongClickListener(this);
@@ -101,6 +103,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnLongClic
         viewPassword2.setText(keyDetail.getPasswordTwo());
         viewRemark.setText(keyDetail.getRemarks());
         viewOtherName.setText(keyDetail.getOtherName());
+        date.setText(BaseUtils.dateToString(keyDetail.getCreateDate()));
     }
 
     @Override
